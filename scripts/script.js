@@ -1,9 +1,19 @@
-function initMap() {
-  var center = { lat: 41.8719, lng: 12.5674 }; // Rome, Italy as the center
+// Initialize and add the map
+let map;
 
-  var map = new google.maps.Map(document.getElementById('map'), {
+async function initMap() {
+  // The location of Rome, Italy as the center
+  const center = { lat: 41.8719, lng: 12.5674 };
+
+  // Request needed libraries
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+  // Create the map
+  map = new Map(document.getElementById("map"), {
+    zoom: 3,
     center: center,
-    zoom: 3
+    mapId: "5Locations" // Replace with your actual mapId
   });
 
   var locations = [
@@ -14,11 +24,14 @@ function initMap() {
     { lat: 42.6507, lng: 1.1803, title: 'Pyrenees' }
   ];
 
+  // Add markers for each location
   locations.forEach(function(location) {
-    new google.maps.marker.AdvancedMarkerElement({
-      position: { lat: location.lat, lng: location.lng },
+    new AdvancedMarkerElement({
       map: map,
+      position: { lat: location.lat, lng: location.lng },
       title: location.title
     });
   });
 }
+
+initMap();
