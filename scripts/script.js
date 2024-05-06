@@ -13,7 +13,7 @@ async function initMap() {
   map = new Map(document.getElementById("map"), {
     zoom: 3,
     center: center,
-    mapId: "5Locations" // Replace with your actual mapId
+    mapId: "5Locations"
   });
 
   var locations = [
