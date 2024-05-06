@@ -19,6 +19,7 @@ function initMap() {
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.title
+      animation: google.maps.Animation.DROP
     });
   });
 }
