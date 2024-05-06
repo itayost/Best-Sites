@@ -15,7 +15,7 @@ function initMap() {
   ];
 
   locations.forEach(function(location) {
-    new google.maps.Marker({
+    new ggoogle.maps.marker.AdvancedMarkerElement({
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.title
